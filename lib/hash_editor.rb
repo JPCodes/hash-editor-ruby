@@ -37,4 +37,38 @@ class MyHash
     @result
   end
 
+  define_method(:myHasKey?) do |key|
+    key_val_array = self.instance_variable_get(:@hash_array)
+
+    counter = 0
+    key_val_array.each do |param|
+      param.each do |param_in|
+        if param_in.include?(key) and counter == 0
+          counter += 1
+          @result = true
+        elsif !(param_in.include?(key)) and counter == 0
+          @result = false
+        end
+      end
+    end
+    @result
+  end
+
+  define_method(:myHasValue?) do |value|
+    key_val_array = self.instance_variable_get(:@hash_array)
+
+    counter = 0
+    key_val_array.each do |param|
+      param.each do |param_in|
+        if param_in.include?(value) and counter == 0
+          counter += 1
+          @result = true
+        elsif !(param_in.include?(value)) and counter == 0
+          @result = false
+        end
+      end
+    end
+    @result
+  end
+
 end

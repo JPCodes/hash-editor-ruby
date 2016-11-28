@@ -15,5 +15,17 @@ describe(MyHash) do
       expect(test_hash.myFetchKey("cute")).to(eq("kitten"))
     end
 
+    it("return true or false if it has a key") do
+      test_hash = MyHash.new()
+      test_hash.myStore("kitten", "cute")
+      expect(test_hash.myHasKey?("kitten")).to(eq(true))
+    end
+
+    it("return true or false if it has a value") do
+      test_hash = MyHash.new()
+      test_hash.myStore("kitten", "cute")
+      expect(test_hash.myHasValue?("cute")).to(eq(true))
+    end
+
   end
 end
