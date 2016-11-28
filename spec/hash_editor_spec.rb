@@ -27,5 +27,13 @@ describe(MyHash) do
       expect(test_hash.myHasValue?("cute")).to(eq(true))
     end
 
+    it("return length of object key value pairs") do
+      test_hash = MyHash.new()
+      test_hash.myStore("kitten", "cute")
+      test_hash.myStore("puppy", "adorable")
+      test_hash.myStore("baby panda", "sneezes")
+      expect(test_hash.myLength()).to(eq(3))
+    end
+
   end
 end

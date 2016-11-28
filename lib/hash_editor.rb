@@ -71,4 +71,9 @@ class MyHash
     @result
   end
 
+  define_method(:myLength) do
+    key_val_array = self.instance_variable_get(:@hash_array)
+    key_val_array.length
+  end
+
 end
