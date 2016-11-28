@@ -11,30 +11,30 @@ class MyHash
     @hash_array.push([key, value])
   end
 
-  define_method(:myFetch) do |key_search|
+  define_method(:myFetchValue) do |key_search|
     key_val_array = self.instance_variable_get(:@hash_array)
 
     key_val_array.each do |param|
-      puts "first each"
       param.each do |param_in|
-        puts "second each"
         if param_in == key_search
-          puts "if statement"
+          @result = param[1]
         end
       end
     end
+    @result
+  end
 
+  define_method(:myFetchKey) do |value_search|
+    key_val_array = self.instance_variable_get(:@hash_array)
+
+    key_val_array.each do |param|
+      param.each do |param_in|
+        if param_in == value_search
+          @result = param[0]
+        end
+      end
+    end
+    @result
   end
 
 end
-
-test_hash = MyHash.new()
-test_hash.myStore("kitten", "cute")
-test_hash.myStore("doggy", "ugly")
-test_hash.myStore("pup", "happy")
-print test_hash.instance_variable_get(:@hash_array)
-puts " "
-puts test_hash.myFetch("kitten")
-# puts test_hash.instance_of? MyHash # true
-# puts test_hash.inspect.include?("kitten") # true
-# puts test_hash.inspect.include?("cute") # true
